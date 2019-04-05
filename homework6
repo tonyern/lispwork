@@ -1,0 +1,7 @@
+(define (poly_add apol bpol))
+
+(define (poly_sub apol bpol))
+
+(define (poly_mul apol bpol))
+
+(define (poly_derx apol))
