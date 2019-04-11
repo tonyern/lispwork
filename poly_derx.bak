@@ -1,0 +1,14 @@
+#lang racket
+(define (poly_derx x)
+  (if (null? x) x
+  
+  ))
+
+(define (derx_helper result x)
+
+  )
+
+; Helper function for poly_derx.
+(define (derx x)
+  (derx_helper '() x)
+  )

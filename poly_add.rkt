@@ -1,7 +1,5 @@
 #lang racket
 (define (poly_add x y)
-  ;(rem0atb (car x))
-  ;(rem0atb (car y))
   ; If x is not there then just output y.
   (if (null? x)
       y

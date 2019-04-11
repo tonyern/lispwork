@@ -1,7 +1,39 @@
-(define (poly_add apol bpol))
+//-----Poly_Add Function below-----//
 
-(define (poly_sub apol bpol))
+#lang racket
+(define (poly_add x y)
+  ; Check for empty list. If empty output something and exit to the next.
+  (if (null? x) y
+  (if (null? y) x
+  ; Appending the results into list here.
+  (append (list (ladd (car x) (car y)))
+  ; Checking for end of list then stopping the program.
+  (if (null? (cdr x)) null
+  ; Move on to the next element in the list until null.
+  (poly_add (cdr x) (cdr y)))))))
 
-(define (poly_mul apol bpol))
+; Function that adds and puts the results into a list.
+; This code was given in class.
+(define (ladd_helper result x y)
+  ; If x is null and y is not then add y to the list.
+  (if (null? x)
+      (append result y)
+  ; If y is null and x is not then add x to the list.
+  (if (null? y)
+      (append result x)
+  ; Computing the values and do a recursive call until the end.
+  (ladd_helper (append result (list (+ (car x) (car y)))) (cdr x) (cdr y)))))
 
-(define (poly_derx apol))
+; Function that makes an empty list with lists of x and y. Will call ladd_helper to do the adding.
+; This code was given in class.
+(define (ladd x y)
+  (ladd_helper '() x y))
+
+; Removing 0's in the list just contain 0.
+(define (rem0atb x)
+  (if (null? x)
+      x
+  (if (= (car x) 0)
+  (rem0atb (cdr x)) x)))
+
+  //-----End Poly_Add-----//
